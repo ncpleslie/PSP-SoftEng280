@@ -3,31 +3,33 @@
 // between 0 and 99. The USER inputs his/her guess, and the program shall response with "Try
 // higher", "Try lower" or "You got it in n trials" if the guess is correct
 
+// eslint-disable-next-line no-unused-vars
 class Main {
-    main() {
-        this.loadQuestion1()
-    }
+  main () {
+    this.loadQuestion1()
+  }
 
-    loadQuestion1() {
-        let randomNum = Math.floor(Math.random() * 99)
-        new Vue({
-            el: '#app1',
-            data: {
-                title: 'Guess a number',
-                guess: null,
-                count: 0,
-                currentStatement: ''
-            },
-            methods: {
-                // Using ES6+ syntax because browser support doesn't matter
-                calcGuess(event) {
-                    this.count++
-                    this.guess = event.target.value
-                    if (this.guess < randomNum) this.currentStatement = 'Try Higher'
-                    if (this.guess > randomNum) this.currentStatement = 'Try Lower'
-                    if (this.guess == randomNum) this.currentStatement = `You got it in ${this.count} trials`
-                }
-            },
-        })
-    }
+  loadQuestion1 () {
+    let randomNum = Math.floor(Math.random() * 99)
+    // eslint-disable-next-line no-unused-vars, no-undef
+    let vueInstance = new Vue({
+      el: '#app1',
+      data: {
+        title: 'Guess a number',
+        guess: null,
+        count: 0,
+        currentStatement: ''
+      },
+      methods: {
+        // Using ES6+ syntax because browser support doesn't matter
+        calcGuess (event) {
+          this.count++
+          this.guess = event.target.value
+          if (this.guess < randomNum) this.currentStatement = 'Try Higher'
+          if (this.guess > randomNum) this.currentStatement = 'Try Lower'
+          if (this.guess === randomNum) this.currentStatement = `You got it in ${this.count} trials`
+        }
+      }
+    })
+  }
 }
