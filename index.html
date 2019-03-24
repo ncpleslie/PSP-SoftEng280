@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>PR280 Assignment 1</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div id="app1">
+        <h1>{{ title }}</h1>
+        <input @keypress.enter="calcGuess" :value='guess' type="number" min="0" max="99">
+        <h1>Total Guesses: {{ count }}</h1>
+        <p>{{ currentStatement }}</p>
+    </div>
+    <script>
+        let main = new Main()
+        window.onload = main.main()
+    </script>
+</body>
+
+</html>
