@@ -10,7 +10,7 @@ class Main {
   }
 
   loadQuestion1 () {
-    let randomNum = Math.floor(Math.random() * 100)
+    let randomNum = Math.floor(Math.random() * 99)
     // eslint-disable-next-line no-unused-vars, no-undef
     let vueInstance = new Vue({
       el: '#app1',
