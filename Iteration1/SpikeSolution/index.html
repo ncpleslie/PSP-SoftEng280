@@ -10,14 +10,11 @@
 
 <body>
     <div id="app1">
-        <h1>{{ title }}</h1>
-        <input @keypress.enter="getCalcGuess" :value='guess' type="number" min="0" max="99">
-        <h1>Total Guesses: {{ count }}</h1>
-        <p>{{ currentStatement }}</p>
+        <button @click="generateNum">Click to generate number</button>
     </div>
     <script>
-        let main = new Main()
-        window.onload = main.main()
+        let controller = new Controller()
+        window.onload = controller.main()
     </script>
 </body>
 

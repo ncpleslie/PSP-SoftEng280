@@ -11,7 +11,7 @@
 <body>
     <div id="app1">
         <h1>{{ title }}</h1>
-        <input @keypress.enter="calcGuess" :value='guess' type="number" min="0" max="99">
+        <input @keypress.enter="getCalcGuess" :value='guess' type="number" min="0" max="99">
         <h1>Total Guesses: {{ count }}</h1>
         <p>{{ currentStatement }}</p>
     </div>
