@@ -4,17 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <title>PR280 Assignment 1</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <script src="https://npmcdn.com/vue/dist/vue.js"></script>
     <script src="main.js"></script>
 </head>
 
 <body>
     <div id="app1">
-        <h1>{{ title }}</h1>
-        <input @keypress.enter="getCalcGuess" :value='guess' type="number" min="0" max="99">
-        <h1>Total Guesses: {{ count }}</h1>
-        <p>{{ currentStatement }}</p>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1>PR280 Software Engineering 2 Assignment 1: Game Number {{ gameNum }}</h1>
+                <p>PSP Assignment</p>
+            </div>
+        </div>
+
+        <!-- Nav tabs -->
+        <!-- This could be done functionally with VueJS -->
+
+        <div class="container mt-3">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#app1" @click="pickGameNumber">Guessing Game
+                        One</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#app2" @click="pickGameNumber">Guessing Game Two</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#app3" @click="pickGameNumber">Guessing Game
+                        Three</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="container tab-pane active">
+                    <h1>Game {{ gameNum }}</h1>
+                    <h2>{{ title }}</h2>
+                    <input @keypress.enter="getCalcGuess" :value='guess' type="number" min="0" max="99">
+                    <h1>Total Guesses: {{ count }}</h1>
+                    <p>{{ currentStatement }}</p>
+                </div>
+
+                <div id="app2" class="container tab-pane">
+                    <h1>Game {{ gameNum }}</h1>
+                    <h2>{{ title }}</h2>
+                    <input @keypress.enter="getCalcGuess" :value='guess' type="number" min="0" max="99">
+                    <h1>Total Guesses: {{ count }}</h1>
+                    <p>{{ currentStatement }}</p>
+                </div>
+
+                <div id="app3" class="container tab-pane active">
+                </div>
+            </div>
+        </div>
     </div>
+
     <script>
         let main = new Main()
         window.onload = main.main()
