@@ -65,3 +65,46 @@ describe('GameOne High Guess', function () {
     expect(game.calcGuess(event)).toBe('Try Lower')
   })
 })
+
+// TASK TWO
+describe('GameTwo', function () {
+  const game = new GameTwo()
+  it('Should return random number', function () {
+    expect(game.getRandomNum()).toEqual(jasmine.any(Number))
+  })
+
+  game.randomNum = 99
+  let event = { target: { value: 1 } }
+
+  it('Should return "COLD"', function () {
+    expect(game.calcGuess(event)).toBe('COLD')
+  })
+
+  game.randomNum = 35
+  event = { target: { value: 1 } }
+
+  it('Should return "COOL"', function () {
+    expect(game.calcGuess(event)).toBe('COOL')
+  })
+
+  game.randomNum = 19
+  event = { target: { value: 1 } }
+
+  it('Should return "WARM"', function () {
+    expect(game.calcGuess(event)).toBe('WARM')
+  })
+
+  game.randomNum = 9
+  event = { target: { value: 1 } }
+
+  it('Should return "HOT"', function () {
+    expect(game.calcGuess(event)).toBe('HOT')
+  })
+
+  game.randomNum = 1
+  event = { target: { value: 1 } }
+
+  it('Should return "You got it in 1 trials"', function () {
+    expect(game.calcGuess(event)).toBe('You got it in 1 trials')
+  })
+})
