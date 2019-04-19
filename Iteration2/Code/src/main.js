@@ -16,6 +16,10 @@ class Game {
     this.count = 0
   }
 
+  getDifference (a, b) {
+    return Math.abs(a - b)
+  }
+
   getRandomNum () {
     return this.randomNum
   }
@@ -56,7 +60,16 @@ class GameTwo extends Game {
     this.guess = parseInt(event.target.value)
     if (this.guess) {
       this.count++
-      // TODO: New Logic
+      if (this.guess > 99) this.guess = 99
+      if (this.guess < 1) this.guess = 1
+      let difference = this.getDifference(this.guess, this.randomNum)
+      if (difference >= 40) return 'COLD'
+      if (difference >= 20 && difference <= 39) return 'COOL'
+      if (difference >= 10 && difference <= 19) return 'WARM'
+      if (difference >= 1 && difference <= 9) return 'HOT'
+      if (this.guess === this.randomNum) return `You got it in ${this.count} trials`
+    } else {
+      return 'Please input a number'
     }
   }
 }
